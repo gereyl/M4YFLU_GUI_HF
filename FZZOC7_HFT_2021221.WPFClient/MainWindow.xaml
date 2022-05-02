@@ -10,38 +10,62 @@
         <local:PlayerWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding Player_Name}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <StackPanel Grid.Column="1" >
-            <Label Content="Name" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedPlayer.Player_Name}" Padding="10" Margin="0,0,0,30"/>
-            <Label Content="Nationality" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedPlayer.Nationality}" Padding="10" Margin="0,0,0,30"/>
-            <Label Content="Position" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedPlayer.Position}" Padding="10" Margin="0,0,0,30"/>
-            <Label Content="Wage" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedPlayer.Wage}" Padding="10" Margin="0,0,0,30"/>
-            <Label Content="Club name" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedPlayer.Club}" Padding="10" Margin="0,0,0,30"/>
-            <Label Content="Club id" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedPlayer.Club_ID}" Padding="10" Margin="0,0,0,30"/>
+        <TabControl>
+                
+            <TabItem Header="Player">
+                <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <ListBox ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Player_Name}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                </ListBox>
+                    <StackPanel Grid.Column="1" >
+                        <Label Content="Name" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedPlayer.Player_Name}" Padding="10" Margin="0,0,0,30"/>
+                        <Label Content="Nationality" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedPlayer.Nationality}" Padding="10" Margin="0,0,0,30"/>
+                        <Label Content="Position" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedPlayer.Position}" Padding="10" Margin="0,0,0,30"/>
+                        <Label Content="Wage" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedPlayer.Wage}" Padding="10" Margin="0,0,0,30"/>
+                        <Label Content="Club name" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedPlayer.Club}" Padding="10" Margin="0,0,0,30"/>
+                        <Label Content="Club id" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedPlayer.Club_ID}" Padding="10" Margin="0,0,0,30"/>
 
 
 
 
 
-            <Button Content="Create player" Command="{Binding CreatePlayerCommand}" Margin="10" Padding="10"/>
-            <Button Content="Delete player" Command="{Binding DeletePlayerCommand}" Margin="10" Padding="10"/>
-            <Button Content="Update player" Command="{Binding UpdatePlayerCommand}" Margin="10" Padding="10"/>
-        </StackPanel>
+                        <Button Content="Create player" Command="{Binding CreatePlayerCommand}" Margin="10" Padding="10"/>
+                        <Button Content="Delete player" Command="{Binding DeletePlayerCommand}" Margin="10" Padding="10"/>
+                        <Button Content="Update player" Command="{Binding UpdatePlayerCommand}" Margin="10" Padding="10"/>
+                    </StackPanel>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="League">
+                    <Label Content="LIGAAA"/>
+
+
+
+            </TabItem>
+            <TabItem Header="Club">
+                    <Label Content="KLUUUUUb"/>
+
+
+
+            </TabItem>
+
+
+        </TabControl>
+       
     </Grid>
 </Window>
