@@ -2,25 +2,45 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>player ui</title>
+    <title>League ui</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>playercatalog</h1>
+
+    <h1>League Catalog</h1>
+
+    <div id="formdiv">
+        <label>League Name</label>
+        <input type="text" id="leaguename" />
+        <label>Nation</label>
+        <input type="text" id="nation" />
+        <label>CLplaces</label>
+        <input type="text" id="clplaces" />
+        <button type="button" onclick="create()">
+            Add League
+        </button>
+
+    </div>
+
+
+
+
+
+
+
+    <<!--h1>Leagu Catalog</h1>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Nationality</th>
-                <th>Club ID</th>
-                <th>Position</th>
-                <th>Wage</th>
+                <th>Nation</th>
+                <th>CL Places</th>
             </tr>
         </thead>
         <tbody id="resultarea">
         </tbody>
-    </table>
+    </table>-->
 
 
     <script src="script.js"></script>

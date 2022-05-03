@@ -4,28 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FZZOC7_HFT_2021221.WPFClient"
+        xmlns:local2="clr-namespace:FZZOC7_HFT_2021221.WPFClient"
         mc:Ignorable="d"
         Title="Player editor" Height="450" Width="800">
-    <Window.DataContext>
-        <local:PlayerWindowViewModel/>
-    </Window.DataContext>
+
+
+
+
     <Grid>
         <TabControl>
-                
-            <TabItem Header="Player">
-                <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
 
-                <ListBox ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}">
+            <TabItem Header="Player"  >
+                <TabItem.DataContext >
+                    <local2:PlayerWindowViewModel/>
+                </TabItem.DataContext>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox ItemsSource="{Binding Players}" SelectedItem="{Binding SelectedPlayer}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Label Content="{Binding Player_Name}"/>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
-                </ListBox>
+                    </ListBox>
                     <StackPanel Grid.Column="1" >
                         <Label Content="Name" Background="LightBlue" Padding="10"/>
                         <TextBox Text="{Binding SelectedPlayer.Player_Name}" Padding="10" Margin="0,0,0,30"/>
@@ -51,14 +56,88 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="League">
-                    <Label Content="LIGAAA"/>
+            <TabItem Header="Club">
+                <TabItem.DataContext >
+                    <local:ClubWindowViewModel/>
+                </TabItem.DataContext>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
 
+                    <ListBox ItemsSource="{Binding Clubs}" SelectedItem="{Binding SelectedClub}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Club_Name}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1" >
+                        <Label Content="Club Name" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedClub.Club_Name}" Padding="10" Margin="0,0,0,30"/>
+
+                        
+                        <Label Content="League" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedClub.League}" Padding="10" Margin="0,0,0,30"/>
+                        <Label Content="League_ID" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedClub.League_ID}" Padding="10" Margin="0,0,0,30"/>
+                        <Label Content="Manager" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedClub.Manager}" Padding="10" Margin="0,0,0,30"/>
+                        <Label Content="Owner" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedClub.Owner}" Padding="10" Margin="0,0,0,30"/>
+                        <Label Content="Value" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedClub.Value}" Padding="10" Margin="0,0,0,30"/>
+
+
+
+
+
+                        <Button Content="Create Club" Command="{Binding CreateClubCommand}" Margin="10" Padding="10"/>
+                        <Button Content="Delete Club" Command="{Binding DeleteClubCommand}" Margin="10" Padding="10"/>
+                        <Button Content="Update Club" Command="{Binding UpdateClubCommand}" Margin="10" Padding="10"/>
+                    </StackPanel>
+
+                </Grid>
 
 
             </TabItem>
-            <TabItem Header="Club">
-                    <Label Content="KLUUUUUb"/>
+            <TabItem Header="League">
+                <TabItem.DataContext >
+                    <local:LeagueWindowViewModel/>
+                </TabItem.DataContext>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox ItemsSource="{Binding Leagues}" SelectedItem="{Binding SelectedLeague}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding League_Name}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1" >
+                        <Label Content="League Name" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedLeague.League_Name}" Padding="10" Margin="0,0,0,30"/>
+
+                        
+                        <Label Content="Clubs" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedLeague.Clubs}" Padding="10" Margin="0,0,0,30"/>
+                        <Label Content="League Nation" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedLeague.Nation}" Padding="10" Margin="0,0,0,30"/>
+                        <Label Content="CL places" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedLeague.CL_Places}" Padding="10" Margin="0,0,0,30"/>
+                        
+
+                        <Button Content="Create League" Command="{Binding CreateLeagueCommand}" Margin="10" Padding="10"/>
+                        <Button Content="Delete League" Command="{Binding DeleteLeagueCommand}" Margin="10" Padding="10"/>
+                        <Button Content="Update League" Command="{Binding UpdateLeagueCommand}" Margin="10" Padding="10"/>
+                    </StackPanel>
+
+                </Grid>
 
 
 
@@ -66,6 +145,6 @@
 
 
         </TabControl>
-       
+
     </Grid>
 </Window>

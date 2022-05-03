@@ -1,22 +1,37 @@
-﻿let players = [];
+﻿let leagues = [];
 
 
-fetch('http://localhost:4894/player')
+fetch('http://localhost:4894/league')
     .then(x => x.json())
     .then(y => {
-        players = y;
-        console.log(players);
+        leagues = y;
+        console.log(leagues);
         display();
     });
 
+
+
 function display() {
-    players.forEach(t => {
-        document.getElementById('resultarea').innerHTML +=
-            "<tr><td>" + t.player_ID + "</td><td>"
-            + t.player_Name + "</td><td>"
-            + t.nationality + "</td><td>"
-            + t.club_ID + "</td><td>"
-            + t.position + "</td><td>"
-            + t.wage + "</td></tr>";
-    });
+    
+}
+
+function create() {
+    let leaguenameee = document.getElementById('leaguename').value;
+    let ntn = document.getElementById('nation').value;
+    let cleaagueplaces = document.getElementById('clplaces').value;
+
+    fetch('http://localhost:4894/league', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify(
+            {
+                League_Name: leaguenameee,
+                Nation: ntn,
+                CL_Places: cleaagueplaces
+
+            }),
+    })
+
+
+
 }
