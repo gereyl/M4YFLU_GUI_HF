@@ -1,4 +1,5 @@
 ﻿let leagues = [];
+getdata();
 
 
 fetch('http://localhost:4894/league')
@@ -9,9 +10,23 @@ fetch('http://localhost:4894/league')
         display();
     });
 
+async function getdata() {
+    fetch('http://localhost:4894/league')
+        .then(x => x.json())
+        .then(y => {
+            leagues = y;
+            //display();
+        });
+}
+
 
 
 function display() {
+    leagues.forEach(t => {
+        document.getElementById('resultarea').innerHTML +=
+            "<tr><td>" + t.league_Name + "</td><td>"
+            + t.nation + "</td></tr>";
+    });
     
 }
 
