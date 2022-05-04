@@ -1,6 +1,8 @@
-﻿using FZZOC7_HFT_2021221.Logic;
+﻿using FZZOC7_HFT_2021221.Endpoint.Services;
+using FZZOC7_HFT_2021221.Logic;
 using FZZOC7_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,12 @@ namespace FZZOC7_HFT_2021221.Endpoint.Controllers
     public class ClubController : ControllerBase
     {
         IClubLogic ClubLogic;
+        IHubContext<SignalRHub> hub;
 
-        public ClubController(IClubLogic clubLogic)
+        public ClubController(IClubLogic clubLogic, IHubContext<SignalRHub> hub)
         {
             ClubLogic = clubLogic;
+            this.hub = hub;
         }
 
         // GET: api/<ClubController>
@@ -40,6 +44,7 @@ namespace FZZOC7_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] Club value)
         {
             ClubLogic.Create(value);
+            this.hub.Clients.All.SendAsync("ClubCreated", value);
         }
 
         // PUT api/<ClubController>/5
@@ -47,13 +52,16 @@ namespace FZZOC7_HFT_2021221.Endpoint.Controllers
         public void Put([FromBody] Club value)
         {
             ClubLogic.Update(value);
+            this.hub.Clients.All.SendAsync("ClubUpdated", value);
         }
 
         // DELETE api/<ClubController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var clubToDelete = this.ClubLogic.Read(id);
             ClubLogic.Delete(id);
+            this.hub.Clients.All.SendAsync("ClubDeleted", clubToDelete);
         }
     }
 }

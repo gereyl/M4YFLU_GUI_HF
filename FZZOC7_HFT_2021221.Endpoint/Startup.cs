@@ -41,6 +41,8 @@ namespace FZZOC7_HFT_2021221.Endpoint
             services.AddSingleton<FootballDbContext, FootballDbContext>();
 
             services.AddSignalR();
+
+
         
         }
 

@@ -37,9 +37,7 @@ namespace FZZOC7_HFT_2021221.WPFClient
                     };
                     OnPropertyChanged();
                     (DeleteClubCommand as RelayCommand).NotifyCanExecuteChanged();
-                    (CreateClubCommand as RelayCommand).NotifyCanExecuteChanged();
-                    (UpdateClubCommand as RelayCommand).NotifyCanExecuteChanged();
-
+                    
                 }
             }
         }
