@@ -122,14 +122,9 @@
                     <StackPanel Grid.Column="1" >
                         <Label Content="League Name" Background="LightBlue" Padding="10"/>
                         <TextBox Text="{Binding SelectedLeague.League_Name}" Padding="10" Margin="0,0,0,30"/>
-
-                        
-                        <Label Content="Clubs" Background="LightBlue" Padding="10"/>
-                        <TextBox Text="{Binding SelectedLeague.Clubs}" Padding="10" Margin="0,0,0,30"/>
                         <Label Content="League Nation" Background="LightBlue" Padding="10"/>
                         <TextBox Text="{Binding SelectedLeague.Nation}" Padding="10" Margin="0,0,0,30"/>
-                        <Label Content="CL places" Background="LightBlue" Padding="10"/>
-                        <TextBox Text="{Binding SelectedLeague.CL_Places}" Padding="10" Margin="0,0,0,30"/>
+                        
                         
 
                         <Button Content="Create League" Command="{Binding CreateLeagueCommand}" Margin="10" Padding="10"/>

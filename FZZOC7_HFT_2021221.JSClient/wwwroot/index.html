@@ -10,30 +10,31 @@
     <h1>League Catalog</h1>
 
     <div id="formdiv">
+
         <label>League Name</label>
         <input type="text" id="leaguename" />
         <label>Nation</label>
         <input type="text" id="nation" />
-        <label>CLplaces</label>
-        <input type="text" id="clplaces" />
         <button type="button" onclick="create()">
             Add League
         </button>
     </div>
 
-    <h1>League Catalog</h1>
     <table>
         <thead>
             <tr>
+
                 <th>League Name</th>
                 <th>Nation</th>
+                <th>League ID</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody id="resultarea">
         </tbody>
     </table>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
