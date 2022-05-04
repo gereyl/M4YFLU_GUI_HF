@@ -62,10 +62,11 @@ function display() {
     leagues.forEach(t => {
         document.getElementById('resultarea').innerHTML +=
             '<tr><td>' + t.league_Name + '</td><td>'
-        + t.nation + '</td><td>' + t.league_ID + '</td><td>' +
-        `<button  type="button" onclick="remove(${t.league_ID})>Delete</button>`+
-        `<button  type="button" onclick="showupdate(${t.league_ID})>Update</button>`
-        + '</td></tr>';
+             + t.nation + '</td><td>'
+            + t.league_ID + '</td><td>' +
+            `<button  type="button" onclick="remove(${t.league_ID})>Delete</button>`+
+            `<button  type="button" onclick="showupdate(${t.league_ID})>Update</button>`
+            + '</td></tr>';
     });
   
 }
